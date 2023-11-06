@@ -3,8 +3,13 @@
 // react 불러오기
 import React from 'react';
 import ReactDOM from 'react-dom';
-
-
+// declare react component 
+class comp extends React.Component{
+  constructor(props){
+    super(props);
+    this.state = {count:0};
+  }
+}
 
 
 
