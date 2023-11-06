@@ -4,7 +4,13 @@ import fs from "fs";
 
 http.createServer((res,req)=> {
   if(req.method==="GET"&& req.url==="/"){
-    
+    fs.readFile("index.html", (err, data)=> {
+      if(err){ console.log("readFile err")
+      } else{
+        res.writeHead()
+        res.end()
+      }
+    })
   }
 })
 
