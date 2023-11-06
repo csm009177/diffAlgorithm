@@ -1,20 +1,19 @@
 // built-in modules
+import http from "http"
+import fs from "fs";
+
 // 1. react(SPA) 기본 접근방법
-// react 불러오기
+// 1-1. npm install react react-dom => 
+// 1-2. react 불러오기
 import React from 'react';
 import ReactDOM from 'react-dom';
-// declare react component 
+// 1-3 declare react component 
 class comp extends React.Component{
   constructor(props){
     super(props);
     this.state = {count:0};
   }
 }
-
-
-
-import http from "http"
-import fs from "fs";
 
 
 
