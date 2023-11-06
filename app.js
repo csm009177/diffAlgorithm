@@ -1,7 +1,10 @@
 // built-in modules
+// 1. react(SPA) 기본 접근방법
+import React from 'react';
 import http from "http"
 import fs from "fs";
 
+// 1. 
 http.createServer((res,req)=> {
   if(req.method==="GET"&& req.url==="/"){
     fs.readFile("index.html", (err, data)=> {
