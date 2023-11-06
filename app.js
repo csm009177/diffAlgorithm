@@ -1,6 +1,12 @@
 // built-in modules
 // 1. react(SPA) 기본 접근방법
+// react 불러오기
 import React from 'react';
+import ReactDOM from 'react-dom';
+
+
+
+
 
 import http from "http"
 import fs from "fs";
