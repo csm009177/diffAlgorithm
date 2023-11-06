@@ -6,35 +6,7 @@
   <title>Document</title>
 </head>
 <body>
-  <script>
-    import React from 'react';
-    import ReactDOM from 'react-dom';
-
-// React 컴포넌트 정의
-class MyComponent extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = { count: 0 };
-  }
-
-  // 이벤트 핸들러 함수
-  handleIncrement = () => {
-    this.setState({ count: this.state.count + 1 });
-  }
-
-  render() {
-    return (
-      <div>
-        <h1>Hello, React!</h1>
-        <p>Count: {this.state.count}</p>
-        <button onClick={this.handleIncrement}>Increment</button>
-      </div>
-    );
-  }
-}
-
-// React 애플리케이션을 루트 DOM 요소에 렌더링
-ReactDOM.render(<MyComponent />, document.getElementById('root'));
-  </script>
+  <div id="root"></div>
+  <script></script>
 </body>
 </html>
