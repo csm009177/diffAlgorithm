@@ -1,5 +1,5 @@
 // // main.js
-const fs = require('fs');
+import fs from 'fs'
 fs.readFile('test.json', 'utf8', (err, data) => {
   if (err) {
     console.error('error comment', err);
