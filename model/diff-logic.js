@@ -4,20 +4,24 @@
  * @param {JSON, Path} outputJSONdata 
  * @returns Object
  */
-const fs = require('fs');
+import fs from 'fs'
 
 export default function(inputJSONPath, outputJSONPath) {
   if (!inputJSONPath.endsWith('.json') || !outputJSONPath.endsWith('.json')) {
     throw new Error(`매개변수 ${inputJSONPath}, ${outputJSONPath}는 json 파일이 아닙니다.`);
   }
-  let result = [];
-  fs.readFile('./model/differences.json', 'utf8', (err, data) => {
+  fs.readFile(inputJSONPath, 'utf8', (err, data) => {
     if (err) {
       console.error('error comment', err);
-      return;
     }
-    result = JSON.parse(data);
+    const jsonData = JSON.parse(data);
+    
   });
+  
+
+  let result = [];
+
+
   /**
    * ? Q. JSON 파일을 아래의 5, 6번에 해당하는 로직 작성 후 JSON으로 저장
    * ? Q. 저장이 완료되면 초기화된 result에 객체를 리턴
