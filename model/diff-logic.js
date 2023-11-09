@@ -17,7 +17,6 @@ export default function(inputJSONPath, outputJSONPath) {
     const jsonData = JSON.parse(data);
     
   });
-  
 
   let result = [];
 
