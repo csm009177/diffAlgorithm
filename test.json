@@ -1,0 +1,12 @@
+[
+  { 
+  "name": "bryan", 
+  "age": 87, 
+  "city": "Suwon",
+  "score": {
+    "Math": 95,
+    "Eng": 97,
+    "Kor": 12
+  }
+}
+]
