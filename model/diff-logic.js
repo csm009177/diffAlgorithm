@@ -1,4 +1,3 @@
-
 /**
  * 
  * @param {JSON, Path} inputJSONdata 
@@ -26,3 +25,5 @@ export default function(inputJSONPath, outputJSONPath) {
 
   return result;
 }
+
+
