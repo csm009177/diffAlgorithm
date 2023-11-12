@@ -5,7 +5,7 @@ const inputPath = '../data/fromDB-data.json'
 const outputPath = '../data/differences.json'
 
 // diff logic Test
-function difflogicTest(inputJSONPath, outputJSONPath) {
+export function difflogicTest(inputJSONPath, outputJSONPath) {
   // if not ends with '.json', throw new Error
   if (!inputJSONPath.endsWith('.json') || !outputJSONPath.endsWith('.json')) {
     throw new Error(`매개변수 ${inputJSONPath}, ${outputJSONPath}는 json 파일이 아닙니다.`);
@@ -39,18 +39,22 @@ function difflogicTest(inputJSONPath, outputJSONPath) {
     console.log(commonWord)
     console.log(differentWord)    
   });
-
+  
+  // 다르다고 분류한 각 요소들을 
   fs.readFile(outputJSONPath, 'utf8', (err, data) => {
     if (err) {
       console.error('error comment', err);
     }
+    // JSON 형식의 String을 JS 객체로 변환
     const outputJsonData = JSON.parse(data);
-    // console.log(outputJsonData.sameWords)
+    console.log(outputJsonData.sameWords)
+    // 각 요소에 대해 
     commonWord.forEach((element)=>{
+      // outputJSONPath의 sameWords에 푸시
       outputJsonData.sameWords.push(element)
     })
-
-    // fs.writeFile(outputJSONPath,JSON.stringify())
+    
+    fs.writeFile(outputJSONPath,JSON.stringify())
     console.log(outputJsonData)
     console.log(JSON.stringify(outputJsonData))
     
@@ -68,3 +72,4 @@ function difflogicTest(inputJSONPath, outputJSONPath) {
 }
 
 difflogicTest(inputPath, outputPath)
+
