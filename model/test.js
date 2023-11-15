@@ -4,6 +4,8 @@ import path from 'path';
 const inputPath = '../data/fromDB-data.json'
 const outputPath = '../data/differences.json'
 
+
+// 
 function difflogicTest(inputJSONPath, outputJSONPath) {
 
   if (!inputJSONPath.endsWith('.json') || !outputJSONPath.endsWith('.json')) {
