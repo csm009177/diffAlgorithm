@@ -1,15 +1,15 @@
 // built-in modules
-import http from "http"
-import fs from "fs";
+import fs from 'fs';
 
 // custom modules
 import diffLogic from "./model/diff-logic.js";
 
 // json files path
-const inputJSONPath = "./config/fromDB-data.json";
-const outputJSONPath = "./config/differences.json";
+const inputJSONPath = "./save/fromDB-data.json";
+const outputJSONPath = "./save/differences.json";
 
 // controller
 const resultObject = diffLogic(inputJSONPath, outputJSONPath);
 console.log(resultObject);
 
+// 1. inputJSONdata, outputJSONdata를 읽어서 JSON 객체로 변환
