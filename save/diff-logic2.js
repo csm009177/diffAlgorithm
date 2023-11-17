@@ -1,6 +1,5 @@
 // import 
 import fs from 'fs'
-<<<<<<< HEAD:model/test.js
 import path from 'path';
 
 const inputPath = '../data/fromDB-data.json'
@@ -10,15 +9,6 @@ const outputPath = '../data/differences.json'
 // 
 function difflogicTest(inputJSONPath, outputJSONPath) {
 
-=======
-// declare path 
-const inputPath = '../data/fromDB-data.json'
-const outputPath = '../data/differences.json'
-
-// diff logic Test
-export function difflogicTest(inputJSONPath, outputJSONPath) {
-  // if not ends with '.json', throw new Error
->>>>>>> c00c0da8ee510a5cf77aad425bfb8105cf3d6d39:save/diff-logic2.js
   if (!inputJSONPath.endsWith('.json') || !outputJSONPath.endsWith('.json')) {
     throw new Error(`매개변수 ${inputJSONPath}, ${outputJSONPath}는 json 파일이 아닙니다.`);
   }
