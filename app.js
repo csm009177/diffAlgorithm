@@ -2,11 +2,11 @@
 import fs from 'fs';
 
 // custom modules
-import diffLogic from "./model/nom1.js";
+import diffLogic from "./model/diff-logic.js";
 
 // json files path
-const inputJSONPath = "./save/fromDB-data.json";
-const outputJSONPath = "./save/differences.json";
+const inputJSONPath = "./data/fromDB-data.json";
+const outputJSONPath = "./data/differences.json";
 
 // controller
 const resultObject = diffLogic(inputJSONPath, outputJSONPath);
