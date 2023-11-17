@@ -12,21 +12,26 @@ export default function(inputJSONPath, outputJSONPath) {
   }
   // * * 1. inputJSONdata, outputJSONdata를 읽어서 JSON 객체로 변환
   const inputJSONdata = JSON.parse(fs.readFileSync(inputJSONPath, 'utf8'));
-
   const outputJSONdata = JSON.parse(fs.readFileSync(outputJSONPath, 'utf8'));
-  let result = {inputJSONdata, outputJSONdata};
+  // * * 2. inputJSONdata, outputJSONdata의 value를 비교
+  console.log(inputJSONdata)
+  console.log(outputJSONdata)
+  // * * 3. outputJSONpath 매개변수의 key에 해당하는 정보를 저장
+  const a= Object.keys(outputJSONdata)
+  const b= Object.keys(inputJSONdata)
+  // * * 4. differences.json 파일에 필요한 상태값
+  // * * 5. 같은 단어가 무엇인지 저장
+  // * * 6. 다른 단어가 무엇인지 저장
+  
+
   /**
    * ? Q. JSON 파일을 아래의 5, 6번에 해당하는 로직 작성 후 JSON으로 저장
    * ? Q. 저장이 완료되면 초기화된 result에 객체를 리턴
    * 
-   
-   * * 2. inputJSONdata, outputJSONdata의 value를 비교
-   * * 3. outputJSONpath 매개변수의 key에 해당하는 정보를 저장
-   * * 4. dirrences.json 파일에 필요한 상태값
-   * * 5. 같은 단어가 무엇인지 저장
-   * * 6. 다른 단어가 무엇인지 저장
-   * * 7. 리턴을 통해 결과값을 전달
-   */
-
+  
+  * * 7. 리턴을 통해 결과값을 전달
+  */
+ 
+ let result = {};
   return result;
 }
