@@ -11,6 +11,8 @@ export default function(inputJSONPath, outputJSONPath) {
   }
   // Step 1: inputJSONdata, outputJSONdata를 읽어서 JSON 객체로 변환
   const inputJSONdata = JSON.parse(fs.readFileSync(inputJSONPath, 'utf8'));
+  const a = fs.readFileSync(inputJSONPath, 'utf8')
+  console.log(a)
   const outputJSONdata = JSON.parse(fs.readFileSync(outputJSONPath, 'utf8'));
   let result = {};
   return result;

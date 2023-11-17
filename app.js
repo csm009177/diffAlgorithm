@@ -2,7 +2,7 @@
 import fs from 'fs';
 
 // custom modules
-import diffLogic from "./model/diff-logic.js";
+import diffLogic from "./model/nom1.js";
 
 // json files path
 const inputJSONPath = "./save/fromDB-data.json";
