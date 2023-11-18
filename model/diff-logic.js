@@ -17,15 +17,19 @@ export default function(inputJSONPath, outputJSONPath) {
   // console.log(inputJSONdata)
   // console.log(outputJSONdata)
   // * * 3. outputJSONpath 매개변수의 key에 해당하는 정보를 저장
-  const outputobjKey= Object.keys(outputJSONdata)
-  const inputobjKey= Object.keys(inputJSONdata) //for check
-  // console.log(outputobjKey) 
-  // console.log(inputobjKey) 
+  const inputobjKey= Object.keys(inputJSONdata)   
+  const outputobjKey= Object.keys(outputJSONdata) //for check
+  console.log(inputobjKey) 
+  console.log(outputobjKey) 
+
+  Object.keys(inputJSONdata).values
+
+
+
+
+
   // * * 4. differences.json 파일에 필요한 상태값
-  inputobjKey[0]
-  inputobjKey[1]
-  
-  
+
   // * * 5. fromDB-data.json 같은 단어가 무엇인지 저장
 
   // * * 6. fromDB-data.json 다른 단어가 무엇인지 저장
