@@ -14,19 +14,30 @@ export default function(inputJSONPath, outputJSONPath) {
   const inputJSONdata = JSON.parse(fs.readFileSync(inputJSONPath, 'utf8'));
   const outputJSONdata = JSON.parse(fs.readFileSync(outputJSONPath, 'utf8'));
   // * * 2. inputJSONdata, outputJSONdata의 value를 비교
-  console.log(`inputJSONdata  : ${inputJSONdata}`)
-  console.log(`outputJSONdata : ${outputJSONdata}`)
+  // console.log(`inputJSONdata  : ${inputJSONdata}`)
+  // console.log(`outputJSONdata : ${outputJSONdata}`)
   // * * 3. outputJSONpath 매개변수의 key에 해당하는 정보를 저장
   const inputObjKey = Object.keys(inputJSONdata)   //for check
   const outputObjKey = Object.keys(outputJSONdata)
-  console.log(`inputObjKey  : ${inputObjKey}`) 
-  console.log(`outputObjKey : ${outputObjKey}`) 
- 
+  // console.log(`inputObjKey  : ${inputObjKey}`) 
+  // console.log(`outputObjKey : ${outputObjKey}`)
+
   for (const key in inputJSONdata) {
     const value = inputJSONdata[key];
     console.log(`inputJSONdataKey: ${key}, inputJSONdataValue: ${value}`);
   }
-  
+
+  // const value = []
+  // for (const key in inputJSONdata) {
+  //   value = inputJSONdata[key];
+  //   return value
+  // }
+
+  // for (const keys in inputJSONdata) {
+  // const newObject = inputJSONdata[keys]; 
+  // return console.log(newObject)
+  // }
+
 
 
   // * * 4. differences.json 파일에 필요한 상태값
