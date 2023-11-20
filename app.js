@@ -2,7 +2,7 @@
 import fs from 'fs';
 
 // custom modules
-import diffLogic from "./model/seunghee.js";
+import diffLogic from "./model/remake.js";
 
 // json files path
 const inputJSONPath = "./data/fromDB-data.json";

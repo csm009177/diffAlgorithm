@@ -30,7 +30,7 @@
       throw new Error(`매개변수 ${inputJSONPath}, ${outputJSONPath}는 json 파일이 아닙니다.`);
     }
   
-  
+    let result = {};
     // inputJSONdata, outputJSONdata를 읽어서 JSON 객체로 변환
     const readAndParseJSON = (filePath) => {
       try {
@@ -44,7 +44,7 @@
     // app.js 파일을 보면 json files path 변수 처리 되어있음
     // JSON 파일을 읽어와서 파싱
     const inputJSONData = readAndParseJSON(inputJSONPath);
-    const outputJSONData = readAndParseJSON(outputJSONPath);
+    // const outputJSONData = readAndParseJSON(outputJSONPath);s
   
     // 문자열 정규화, 특수 기호를 제거, 소문자로 변환, 공백을 기준으로 토큰화하여 Set으로 반환하는 함수
     const normalize = (str) => new Set(str.toLowerCase().replace(/[^\w\s]/gi, '').split(/\s+/));
@@ -74,11 +74,11 @@
     }
   
     // 출력값 differences.json 파일에 저장 
-    const differencesFilePath = 'data/differences.json';
+    const differencesFilePath = outputJSONPath;
     // JSON 형식의 데이터를 파일에 쓰는 작업
     // stringify : result 객체를 JSON 문자열로 변환
     fs.writeFileSync(differencesFilePath, JSON.stringify(result, null, 2), 'utf8');
   
-    let result = {};
+    
     return result;
   }
