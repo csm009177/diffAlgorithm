@@ -17,14 +17,15 @@ export default function(inputJSONPath, outputJSONPath) {
   const outputJSONdata = JSON.parse(fs.readFileSync(outputJSONPath, 'utf8'));
   // console.log(inputJSONdata, outputJSONdata);
   // * * 2. inputJSONdata, outputJSONdata의 value를 비교
-  const inputObjVal = Object.values(inputJSONdata)   //for check
-  const outputObjVal = Object.values(outputJSONdata) // array
-  console.log(inputObjKey, outputObjKey);
+  const inputObjKey = Object.values(inputJSONdata)   //for check
+  const outputObjKey = Object.values(outputJSONdata) // array
+  // console.log(inputObjKey, outputObjKey);
   // * * 3. outputJSONpath 매개변수의 key에 해당하는 정보를 저장
-  // 인풋데이터로 받은 것을 아웃풋데이터의 키에 같으면 same에 틀리면 diff에 저장
-  outputJSONdata["sameWords"] = inputObjVal[0];
-  outputJSONdata["differentWords"] = inputObjVal[1];
-  console.log("outputJSONdata", outputJSONdata);
+  // 인풋데이터로 받은 것을 아웃풋데이터의 키에 같으면 same에 다르면 diff에 저장
+  outputJSONdata[0] = inputJSONdata["operator"];
+  // console.log(inputJSONdata["sameWords"])
+  outputJSONdata[1] = inputJSONdata["operand"];
+
   // * * 4. differences.json 파일에 필요한 상태값
 
   // * * 5. fromDB-data.json 같은 단어가 무엇인지 저장
@@ -39,6 +40,6 @@ export default function(inputJSONPath, outputJSONPath) {
   
   * * 7. 리턴을 통해 결과값을 전달
   */
- 
-  // return result;
+  let result = outputJSONdata;
+  return result;
 }
