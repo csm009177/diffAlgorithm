@@ -20,8 +20,8 @@ export default function(inputJSONPath, outputJSONPath) {
   // 3-1. 키의 값을 조회
   const inputObjKey = Object.keys(inputJSONdata)   //for check
   const outputObjKey = Object.keys(outputJSONdata)
-  console.log(`3-1..inputObjKey  : ${inputObjKey}`) 
-  console.log(`3-1..outputObjKey : ${outputObjKey}`) 
+  // console.log(`3-1..inputObjKey  : ${inputObjKey}`) 
+  // console.log(`3-1..outputObjKey : ${outputObjKey}`) 
   // 3-2. 키에 해당하는 벨류를 인쇄
 //   for (const key in inputJSONdata) {
 //     const value = inputJSONdata[key];
@@ -35,10 +35,14 @@ for (const key of inputObjKey) {
   const outputValue = outputJSONdata[key];
 
   const resultObj = inputValue;
+  outputJSONdata[key] = JSON.parse(fs.writeFileSync(outputJSONPath, 'utf8'))
+  // outputJSONdata[key] = inputValue;s
 
   resultArray.push(resultObj);
+  
 }
 
+console.log( Object.values(inputJSONdata))
 
   // * * 4. differences.json 파일에 필요한 상태값
 
