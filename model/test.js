@@ -5,49 +5,33 @@ export default function(inputJSONPath, outputJSONPath) {
     throw new Error(`매개변수 ${inputJSONPath}, ${outputJSONPath}는 json 파일이 아닙니다.`);
   }
 
+  // 1. inputJSONdata, outputJSONdata를 읽어서 JSON 객체로 변환
   const inputJSONdata = JSON.parse(fs.readFileSync(inputJSONPath, 'utf8'));
   const outputJSONdata = JSON.parse(fs.readFileSync(outputJSONPath, 'utf8'));
 
-  const outputobjKey = Object.keys(outputJSONdata);
-  const inputobjKey = Object.keys(inputJSONdata);
+  // 3-1. 키의 값을 조회
+  const inputObjKey = Object.keys(inputJSONdata); // for check
+  const outputObjKey = Object.keys(outputJSONdata);
 
-  // 4. differences.json 파일에 필요한 상태값
-  const differences = {};
-  for (const key of inputobjKey) {
-    const cleanedKey = key.replace(/[,.]/g, ''); // 쉼표(,)와 마침표(.) 제거
-    differences[cleanedKey] = {
-      input: inputJSONdata[key],
-      output: outputJSONdata[key] || null, // 해당 키가 outputJSONdata에 없는 경우 처리
+  console.log(`3-1..inputObjKey  : ${inputObjKey}`);
+  console.log(`3-1..outputObjKey : ${outputObjKey}`);
+
+  // 3-2. 키에 해당하는 값을 하나의 객체에 담아 배열에 저장
+  const resultArray = [];
+
+  for (const key of inputObjKey) {
+    const inputValue = inputJSONdata[key];
+    const outputValue = outputJSONdata[key];
+
+    const resultObj = {
+      key: key,
+      inputValue: inputValue,
+      outputValue: outputValue,
     };
+
+    resultArray.push(resultObj);
   }
 
-  // 5. fromDB-data.json 같은 단어가 무엇인지 저장
-  const fromDBData = {};
-  for (const key of outputobjKey) {
-    const cleanedKey = key.replace(/[,.]/g, ''); // 쉼표(,)와 마침표(.) 제거
-    fromDBData[cleanedKey] = outputJSONdata[key];
-  }
-
-  // 6. fromDB-data.json 다른 단어가 무엇인지 저장
-  const differentWords = {};
-  for (const key of inputobjKey) {
-    if (!outputobjKey.includes(key)) {
-      const cleanedKey = key.replace(/[,.]/g, ''); // 쉼표(,)와 마침표(.) 제거
-      differentWords[cleanedKey] = inputJSONdata[key];
-    }
-  }
-
-  // JSON 파일로 저장
-  fs.writeFileSync('test/differences.json', JSON.stringify(differences, null, 2));
-  fs.writeFileSync('test/fromDB-data.json', JSON.stringify(fromDBData, null, 2));
-  fs.writeFileSync('test/differentWords.json', JSON.stringify(differentWords, null, 2));
-
-  // 7. 리턴을 통해 결과값을 전달
-  const result = {
-    differences: differences,
-    fromDBData: fromDBData,
-    differentWords: differentWords,
-  };
-
-  return result;
+  // 결과를 리턴
+  return resultArray;
 }

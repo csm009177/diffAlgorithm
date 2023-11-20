@@ -23,13 +23,21 @@ export default function(inputJSONPath, outputJSONPath) {
   console.log(`3-1..inputObjKey  : ${inputObjKey}`) 
   console.log(`3-1..outputObjKey : ${outputObjKey}`) 
   // 3-2. 키에 해당하는 벨류를 인쇄
-  for (const key in inputJSONdata) {
-    const value = inputJSONdata[key];
-    console.log(`3-2. inputJSONdataKey: ${key}, 
-3-2. inputJSONdataValue: ${value}`);
-  }
+//   for (const key in inputJSONdata) {
+//     const value = inputJSONdata[key];
+//     console.log(`3-2. inputJSONdataKey: ${key}, 
+// 3-2. inputJSONdataValue: ${value}`);
+//   }
+const resultArray = [];
 
-  
+for (const key of inputObjKey) {
+  const inputValue = inputJSONdata[key];
+  const outputValue = outputJSONdata[key];
+
+  const resultObj = inputValue;
+
+  resultArray.push(resultObj);
+}
 
 
   // * * 4. differences.json 파일에 필요한 상태값
@@ -47,6 +55,6 @@ export default function(inputJSONPath, outputJSONPath) {
   * * 7. 리턴을 통해 결과값을 전달
   */
  
- let result = {};
+ let result = resultArray;
   return result;
 }
