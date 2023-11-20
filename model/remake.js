@@ -23,19 +23,20 @@ export default function(inputJSONPath, outputJSONPath) {
   // * * 3. outputJSONpath 매개변수의 key에 해당하는 정보를 저장
   // 인풋데이터로 받은 것을 아웃풋데이터의 키에 같으면 same에 다르면 diff에 저장
   const newinputval = inputObjKey.join(' ').split(' ')
+  // const newnewinputval =newinputval.replace(',', '')
   // console.log(newinputval)
-  function divide (){}
+  function divide(){}
   const same = [];
   const diff = [];
   newinputval.forEach(Element=>{
-    if(Element === Element){
-      same.push(Element);
+    if(Element.includes(Element)){
+      return same.push(Element);
     } else {
-      diff.push(Element);
+      return diff.push(Element);
     }
   })
-  console.log(same)
-  console.log(diff)
+  console.log(`same : ${same}
+diff : ${diff}`)
   
   outputJSONdata["sameWords"] = same; // assuming "operator" is the first key
   outputJSONdata["differentWords"] = diff; // assuming "operand" is the second key
@@ -55,6 +56,6 @@ export default function(inputJSONPath, outputJSONPath) {
   
   * * 7. 리턴을 통해 결과값을 전달
   */
-  let result = outputJSONdata;
-  return result;
+  // let result = outputJSONdata;
+  // return result;
 }
