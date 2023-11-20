@@ -22,8 +22,23 @@ export default function(inputJSONPath, outputJSONPath) {
   // console.log(inputObjKey, outputObjKey);
   // * * 3. outputJSONpath 매개변수의 key에 해당하는 정보를 저장
   // 인풋데이터로 받은 것을 아웃풋데이터의 키에 같으면 same에 다르면 diff에 저장
-  outputJSONdata["sameWords"] = inputObjKey[0]; // assuming "operator" is the first key
-  outputJSONdata["differentWords"] = inputObjKey[1]; // assuming "operand" is the second key
+  const newinputval = inputObjKey.join(' ').split(' ')
+  // console.log(newinputval)
+  function divide (){}
+  const same = [];
+  const diff = [];
+  newinputval.forEach(Element=>{
+    if(Element === Element){
+      same.push(Element);
+    } else {
+      diff.push(Element);
+    }
+  })
+  console.log(same)
+  console.log(diff)
+  
+  outputJSONdata["sameWords"] = same; // assuming "operator" is the first key
+  outputJSONdata["differentWords"] = diff; // assuming "operand" is the second key
 
   fs.writeFileSync(outputJSONPath, JSON.stringify(outputJSONdata, null, 2));
   // * * 4. differences.json 파일에 필요한 상태값
