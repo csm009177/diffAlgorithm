@@ -14,18 +14,21 @@ export default function(inputJSONPath, outputJSONPath) {
   const inputJSONdata = JSON.parse(fs.readFileSync(inputJSONPath, 'utf8'));
   const outputJSONdata = JSON.parse(fs.readFileSync(outputJSONPath, 'utf8'));
   // * * 2. inputJSONdata, outputJSONdata의 value를 비교
-  console.log(`inputJSONdata  : ${inputJSONdata}`)
-  console.log(`outputJSONdata : ${outputJSONdata}`)
+  // console.log(`2.inputJSONdata  : ${inputJSONdata}`)
+  // console.log(`2.outputJSONdata : ${outputJSONdata}`)
   // * * 3. outputJSONpath 매개변수의 key에 해당하는 정보를 저장
+  // 3-1. 키의 값을 조회
   const inputObjKey = Object.keys(inputJSONdata)   //for check
   const outputObjKey = Object.keys(outputJSONdata)
-  console.log(`inputObjKey  : ${inputObjKey}`) 
-  console.log(`outputObjKey : ${outputObjKey}`) 
- 
+  console.log(`3-1..inputObjKey  : ${inputObjKey}`) 
+  console.log(`3-1..outputObjKey : ${outputObjKey}`) 
+  // 3-2. 키에 해당하는 벨류를 인쇄
   for (const key in inputJSONdata) {
     const value = inputJSONdata[key];
-    console.log(`inputJSONdataKey: ${key}, inputJSONdataValue: ${value}`);
+    console.log(`3-2. inputJSONdataKey: ${key}, 
+3-2. inputJSONdataValue: ${value}`);
   }
+
   
 
 
