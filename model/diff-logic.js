@@ -35,8 +35,8 @@ for (const key of inputObjKey) {
   const outputValue = outputJSONdata[key];
 
   const resultObj = inputValue;
-  outputJSONdata[key] = JSON.parse(fs.writeFileSync(outputJSONPath, 'utf8'))
-  // outputJSONdata[key] = inputValue;s
+  const outputWriteData = JSON.stringify(fs.writeFileSync(outputValue, 'utf8'))
+  
 
   resultArray.push(resultObj);
   
