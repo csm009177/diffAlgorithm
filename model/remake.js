@@ -22,10 +22,10 @@ export default function(inputJSONPath, outputJSONPath) {
   // console.log(inputObjKey, outputObjKey);
   // * * 3. outputJSONpath 매개변수의 key에 해당하는 정보를 저장
   // 인풋데이터로 받은 것을 아웃풋데이터의 키에 같으면 same에 다르면 diff에 저장
-  outputJSONdata[0] = inputJSONdata["operator"];
-  // console.log(inputJSONdata["sameWords"])
-  outputJSONdata[1] = inputJSONdata["operand"];
+  outputJSONdata["sameWords"] = inputObjKey[0]; // assuming "operator" is the first key
+  outputJSONdata["differentWords"] = inputObjKey[1]; // assuming "operand" is the second key
 
+  fs.writeFileSync(outputJSONPath, JSON.stringify(outputJSONdata, null, 2));
   // * * 4. differences.json 파일에 필요한 상태값
 
   // * * 5. fromDB-data.json 같은 단어가 무엇인지 저장

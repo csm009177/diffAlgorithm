@@ -5,7 +5,7 @@ import fs from 'fs';
 import diffLogic from "./model/remake.js";
 
 // json files path
-const inputJSONPath = "./data/fromDB-data.json";
+const inputJSONPath  = "./data/fromDB-data.json";
 const outputJSONPath = "./data/differences.json";
 
 // controller
